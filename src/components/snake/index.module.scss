@@ -1,0 +1,39 @@
+@mixin responsive-box($height) {
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: $height;
+  }
+}
+
+.food {
+  position: absolute;
+  min-width: 5%;
+  min-height: 5%;
+  max-width: 5%;
+  max-height: 5%;
+  background-color: red;
+  box-shadow: 2px 2px inset rgba(255, 255, 255, 0.5),
+    -2px -2px inset rgba(0, 0, 0, 0.5);
+}
+
+.snakeBody {
+  position: absolute;
+  min-width: 5%;
+  min-height: 5%;
+  max-width: 5%;
+  max-height: 5%;
+  background-color: blue;
+  box-shadow: 2px 2px inset rgba(255, 255, 255, 0.5),
+    -2px -2px inset rgba(0, 0, 0, 0.5);
+}
+
+.snakeGameBoard {
+  @include responsive-box(100%);
+  /*For the box appearance*/
+  width: 100%;
+  background-color: green;
+  margin: auto;
+  position: relative;
+}
