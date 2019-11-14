@@ -1,13 +1,22 @@
 import React from 'react';
 import { Modal, ModalBody, ModalHeader, ModalFooter, Button } from 'reactstrap';
 
-export const ScoreModal = ({ score, modal, setModal, newGame }) => {
+export const ScoreModal = ({
+  title,
+  text,
+  score,
+  modal,
+  setModal,
+  newGame
+}) => {
   return (
     <Modal isOpen={modal} toggle={setModal}>
       <ModalHeader className='justify-content-center' toggle={setModal}>
-        Score
+        {title}
       </ModalHeader>
-      <ModalBody>Congratulations! Your score is {score}!</ModalBody>
+      <ModalBody>
+        {text} {score}!
+      </ModalBody>
       <ModalFooter>
         <Button color='primary' onClick={newGame}>
           New Game

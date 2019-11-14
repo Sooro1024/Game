@@ -1,0 +1,96 @@
+@mixin responsive-box($height) {
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: $height;
+  }
+}
+
+.board-container {
+  @include responsive-box(100%);
+  width: 100%;
+  background-color: #323232;
+  border-radius: 3%;
+}
+
+.board {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  min-width: 100%;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  min-height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.banner {
+  position: absolute;
+  z-index: 5;
+  opacity: 0.3;
+}
+.banner-text {
+  position: absolute;
+  top: 45%;
+  text-align: center;
+  width: 100%;
+  opacity: 1;
+  color: rgb(255, 153, 0);
+  z-index: 10;
+}
+.tile {
+  position: relative;
+}
+
+.tile-back {
+  background-size: 85%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: 0.7s;
+  backface-visibility: hidden;
+  background-color: #98e2ed;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile-front {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #90e846;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: 0.7s;
+  backface-visibility: hidden;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile-back.show {
+  transform: rotateY(0deg);
+}
+
+.tile-front.show {
+  transform: rotateY(-180deg);
+}
+
+.tile-back {
+  transform: rotateY(180deg);
+}

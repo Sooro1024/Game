@@ -16,7 +16,7 @@ export const Navigation = () => {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <Navbar color='dark' dark expand='md' className='mb-xs-2 mb-md-4'>
-      <NavbarBrand className='text-white' color='light'>
+      <NavbarBrand className='text-white' color='light' tag='div'>
         <Link className='text-white navbar-brand' to='/'>
           TEST TASK
         </Link>
@@ -25,16 +25,16 @@ export const Navigation = () => {
       <Collapse isOpen={isOpen} navbar>
         <Nav className='ml-auto' navbar>
           <NavItem>
-            <NavLink>
+            <NavLink tag='span'>
               <Link className='nav-link' to='/match-the-picture'>
                 Match the picture
               </Link>
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink>
+            <NavLink tag='span'>
               <Link className='nav-link' to='/snake'>
-                GitHub
+                Snake
               </Link>
             </NavLink>
           </NavItem>

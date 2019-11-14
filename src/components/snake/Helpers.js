@@ -25,10 +25,10 @@ const newFoodRandom = snake => {
 
 const createInitalState = () => {
   const snake = [
-    { x: 0, y: 0, id: nanoid() },
-    { x: 0, y: 1, id: nanoid() },
-    { x: 0, y: 2, id: nanoid() },
-    { x: 0, y: 3, id: nanoid() }
+    { x: 8, y: 3, id: nanoid() },
+    { x: 9, y: 3, id: nanoid() },
+    { x: 9, y: 4, id: nanoid() },
+    { x: 9, y: 5, id: nanoid() }
   ];
 
   const food = newFoodRandom(snake);

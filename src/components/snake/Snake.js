@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Game } from './Game';
 import { Score } from './Score';
 import { Container, Col, Row, Button } from 'reactstrap';
-import { ScoreModal } from './Modal';
+import { ScoreModal } from '../comon/Modal';
 
 export const Snake = () => {
   const [score, setScore] = useState(0);
@@ -24,6 +24,10 @@ export const Snake = () => {
     setScore(0);
   };
 
+  const closeModal = () => {
+    setModal(false);
+  };
+
   return (
     <Container>
       <Row>
@@ -32,10 +36,12 @@ export const Snake = () => {
           xs={6}
           md={{ size: 3, order: 1 }}
         >
+          <h4>Play with arrow keys!!!</h4>
           <Button
             className='mb-3'
             color='primary'
             onClick={ev => setPause(!pause)}
+            autoFocus
           >
             {pause ? 'Pause' : 'Start'}
           </Button>
@@ -61,8 +67,10 @@ export const Snake = () => {
         </Col>
       </Row>
       <ScoreModal
+        title='Score'
+        text='Congratulations! Your score is'
         modal={modal}
-        setModal={setModal}
+        setModal={closeModal}
         newGame={newGame}
         score={score}
       />
