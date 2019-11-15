@@ -26,6 +26,13 @@ export const Navigation = () => {
         <Nav className='ml-auto' navbar>
           <NavItem>
             <NavLink tag='span'>
+              <Link className='nav-link' to='/puzzle-15'>
+                15 Puzzle
+              </Link>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag='span'>
               <Link className='nav-link' to='/match-the-picture'>
                 Match the picture
               </Link>

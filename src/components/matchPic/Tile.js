@@ -6,7 +6,7 @@ export const Tile = ({ item, index, indexis, setIndexis }) => {
       <div
         className='tile'
         onClick={() => {
-          if (indexis.length === 2) {
+          if (indexis.length === 2 || indexis.includes(index)) {
             return;
           } else {
             setIndexis([...indexis, index]);
