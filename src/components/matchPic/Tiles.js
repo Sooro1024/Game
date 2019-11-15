@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { newGameData } from './Board';
 import { Tile } from './Tile';
+import styles from './index.module.scss';
 
 export const Tiles = ({ newGame, setStart, setModal }) => {
   const [state, setState] = useState([]);
@@ -44,8 +45,8 @@ export const Tiles = ({ newGame, setStart, setModal }) => {
   }, [indexis]);
 
   return (
-    <div className='board-container'>
-      <div className='board'>
+    <div className={styles.boardContainer}>
+      <div className={styles.board}>
         {state.map((el, index) => (
           <Tile
             index={index}

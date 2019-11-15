@@ -5,7 +5,8 @@ import {
   MOVE_UP,
   MOVE_DOWN,
   MOVE_LEFT,
-  MOVE_RIGHT
+  MOVE_RIGHT,
+  WIN
 } from '../ActionTypes';
 
 export const shuffleAction = () => (dispatch, getState) => {
@@ -131,9 +132,11 @@ export const checkSolvedOrNotAction = () => (dispatch, getState) => {
       }
     }
   }
-  // if (similarity === 16) {
-  //   alert('Congratulation! You win!');
-  // }
+  if (similarity === 16) {
+    setTimeout(() => {
+      dispatch({ type: WIN });
+    }, 600);
+  }
 };
 
 const setClickbles = (i, j, array, clickForMove) => {

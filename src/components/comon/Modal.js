@@ -15,7 +15,8 @@ export const ScoreModal = ({
         {title}
       </ModalHeader>
       <ModalBody>
-        {text} {score}!
+        {text}
+        {score}!
       </ModalBody>
       <ModalFooter>
         <Button color='primary' onClick={newGame}>

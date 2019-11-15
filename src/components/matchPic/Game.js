@@ -3,7 +3,7 @@ import { Container, Col, Row, Button } from 'reactstrap';
 import { Timer } from './Timer';
 import { Tiles } from './Tiles';
 import { ScoreModal } from '../comon/Modal';
-import './index.scss';
+import styles from './index.module.scss';
 
 export const Game = () => {
   const [start, setStart] = useState(false);
@@ -61,15 +61,19 @@ export const Game = () => {
         >
           {!start && (
             <>
-              <div className='board-container banner'></div>
-              <h1 className='banner-text no-select-text'>Press Start</h1>
+              <div
+                className={`${styles.boardContainer} ${styles.banner}`}
+              ></div>
+              <h1 className={`${styles.bannerText} no-select-text`}>
+                Press Start
+              </h1>
             </>
           )}
           <Tiles setModal={setModal} setStart={setStart} newGame={newGame} />
         </Col>
       </Row>
       <ScoreModal
-        text='Congratulations you won!!! Your time is'
+        text='Congratulations you have won!!! Your time is'
         title='Win time'
         modal={modal}
         score={finalTime}

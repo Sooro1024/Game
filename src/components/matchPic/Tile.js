@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from './index.module.scss';
 
 export const Tile = ({ item, index, indexis, setIndexis }) => {
   if (item.solved === false) {
     return (
       <div
-        className='tile'
+        className={styles.tile}
         onClick={() => {
           if (indexis.length === 2 || indexis.includes(index)) {
             return;
@@ -14,21 +15,25 @@ export const Tile = ({ item, index, indexis, setIndexis }) => {
         }}
       >
         <div
-          className={`tile-back ${indexis.includes(index) ? 'show' : ''}`}
+          className={`${styles.tileBack} ${
+            indexis.includes(index) ? styles.show : ''
+          }`}
           style={{
             backgroundImage: `url(${item.img})`
           }}
         ></div>
         <div
-          className={`tile-front ${indexis.includes(index) ? 'show' : ''}`}
+          className={`${styles.tileFront} ${
+            indexis.includes(index) ? styles.show : ''
+          }`}
         ></div>
       </div>
     );
   } else {
     return (
-      <div className='tile'>
+      <div className={styles.tile}>
         <div
-          className='tile-back show'
+          className={`${styles.tileBack} ${styles.show}`}
           style={{
             backgroundImage: `url(${item.img})`
           }}
