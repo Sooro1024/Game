@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import { Container, Row, Col, Button } from "reactstrap";
+import { connect } from "react-redux";
 import {
   shuffleAction,
   findeEmptyAndClickblesAction,
@@ -9,10 +9,10 @@ import {
   moveRightAction,
   moveUpAction,
   checkSolvedOrNotAction
-} from '../../store/Actions/Puzzle15.actions';
-import Game from './Game';
-import { ScoreModal } from '../comon/Modal';
-import './index.scss';
+} from "../../store/Actions/Puzzle15.actions";
+import Game from "./Game";
+import { ScoreModal } from "../comon/Modal";
+import "./index.scss";
 
 const Puzzle15 = ({
   array,
@@ -33,10 +33,10 @@ const Puzzle15 = ({
   }, [findeEmptyAndClickbles, array, checkSolvedOrNot]);
 
   useEffect(() => {
-    window.addEventListener('keydown', keyDownHandler);
+    window.addEventListener("keydown", keyDownHandler);
     shuffle();
     return () => {
-      window.removeEventListener('keydown', keyDownHandler);
+      window.removeEventListener("keydown", keyDownHandler);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -64,28 +64,28 @@ const Puzzle15 = ({
     <Container>
       <Row>
         <Col
-          className='justify-content-center align-items-center d-flex flex-column'
+          className="justify-content-center align-items-center d-flex flex-column"
           xs={6}
           md={{ size: 3, order: 1 }}
         >
-          <p className='h4 w-100'>INSTRUCTIONS</p>
-          <p className='h6'>
+          <p className="h4 w-100">INSTRUCTIONS</p>
+          <p className="h6">
             Move tiles in grid to order them from 1 to 15. To move a tile you
             can click on it or use your arrow keys.
           </p>
         </Col>
         <Col
-          className='justify-content-center align-items-center d-flex flex-column'
+          className="justify-content-center align-items-center d-flex flex-column"
           xs={6}
           md={{ size: 3, order: 3 }}
         >
-          <span className='no-select-text display-4 mb-3'>{moves}</span>
-          <Button color='primary' onClick={shuffle}>
+          <span className="no-select-text display-4 mb-3">{moves}</span>
+          <Button className="mb-2" color="primary" onClick={shuffle}>
             Shuffle
           </Button>
         </Col>
         <Col
-          className='justify-content-center align-items-center d-flex'
+          className="justify-content-center align-items-center d-flex"
           xs={12}
           md={{ size: 6, order: 2 }}
         >
@@ -100,10 +100,9 @@ const Puzzle15 = ({
         </Col>
       </Row>
       <ScoreModal
-        text={`Congratulations you have won in ${moves} moves !!`}
-        title='You have won !!!'
+        text={`Congratulations you have won in ${moves} moves !!!`}
+        title="You have won !!!"
         modal={win}
-        score={null}
         newGame={shuffle}
         setModal={shuffle}
       />

@@ -1,10 +1,12 @@
-import React from 'react';
-import styles from './index.module.scss';
+import React from "react";
+import styles from "./index.module.scss";
+import posed from "react-pose";
 
-export const Tile = ({ item, index, indexis, setIndexis }) => {
+const Tile = React.forwardRef(({ item, index, indexis, setIndexis }, ref) => {
   if (item.solved === false) {
     return (
       <div
+        ref={ref}
         className={styles.tile}
         onClick={() => {
           if (indexis.length === 2 || indexis.includes(index)) {
@@ -16,7 +18,7 @@ export const Tile = ({ item, index, indexis, setIndexis }) => {
       >
         <div
           className={`${styles.tileBack} ${
-            indexis.includes(index) ? styles.show : ''
+            indexis.includes(index) ? styles.show : ""
           }`}
           style={{
             backgroundImage: `url(${item.img})`
@@ -24,14 +26,14 @@ export const Tile = ({ item, index, indexis, setIndexis }) => {
         ></div>
         <div
           className={`${styles.tileFront} ${
-            indexis.includes(index) ? styles.show : ''
+            indexis.includes(index) ? styles.show : ""
           }`}
         ></div>
       </div>
     );
   } else {
     return (
-      <div className={styles.tile}>
+      <div ref={ref} className={styles.tile}>
         <div
           className={`${styles.tileBack} ${styles.show}`}
           style={{
@@ -41,4 +43,8 @@ export const Tile = ({ item, index, indexis, setIndexis }) => {
       </div>
     );
   }
-};
+});
+
+const PosedTile = posed(Tile)();
+
+export default PosedTile;

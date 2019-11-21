@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Container, Col, Row, Button } from 'reactstrap';
-import { Timer } from './Timer';
-import { Tiles } from './Tiles';
-import { ScoreModal } from '../comon/Modal';
-import styles from './index.module.scss';
+import React, { useState, useEffect } from "react";
+import { Container, Col, Row, Button } from "reactstrap";
+import { Timer } from "./Timer";
+import { Tiles } from "./Tiles";
+import { ScoreModal } from "../comon/Modal";
+import styles from "./index.module.scss";
 
 export const Game = () => {
   const [start, setStart] = useState(false);
@@ -14,6 +14,10 @@ export const Game = () => {
   const startTogle = () => {
     setStart(!start);
   };
+
+  useEffect(() => {
+    setNewGame({});
+  }, []);
 
   const modalTogle = () => {
     setModal(!modal);
@@ -28,17 +32,17 @@ export const Game = () => {
     <Container>
       <Row>
         <Col
-          className='justify-content-center align-items-center d-flex flex-column'
+          className="justify-content-center align-items-center d-flex flex-column"
           xs={6}
           md={{ size: 3, order: 1 }}
         >
           <h4>Find matching animals</h4>
-          <Button className='mb-3' color='primary' onClick={startTogle}>
-            {start ? 'Pause' : 'Start'}
+          <Button className="mb-3" color="primary" onClick={startTogle}>
+            {start ? "Pause" : "Start"}
           </Button>
           <Button
-            className='mb-3'
-            color='primary'
+            className="mb-3"
+            color="primary"
             onClick={() => {
               setNewGame({});
               setStart(true);
@@ -48,14 +52,14 @@ export const Game = () => {
           </Button>
         </Col>
         <Col
-          className='justify-content-center align-items-center d-flex'
+          className="justify-content-center align-items-center d-flex"
           xs={6}
           md={{ size: 3, order: 3 }}
         >
           <Timer newGame={newGame} start={start} setFinalTime={setFinalTime} />
         </Col>
         <Col
-          className='justify-content-center align-items-center d-flex'
+          className="justify-content-center align-items-center d-flex"
           xs={12}
           md={{ size: 6, order: 2 }}
         >
@@ -73,10 +77,9 @@ export const Game = () => {
         </Col>
       </Row>
       <ScoreModal
-        text='Congratulations you have won!!! Your time is'
-        title='Win time'
+        text={`Congratulations you have won!!! Your time is ${finalTime} !!!`}
+        title="Win time"
         modal={modal}
-        score={finalTime}
         newGame={newGameTogle}
         setModal={modalTogle}
       />

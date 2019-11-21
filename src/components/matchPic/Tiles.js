@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { newGameData } from './Board';
-import { Tile } from './Tile';
-import styles from './index.module.scss';
+import React, { useState, useEffect } from "react";
+import { newGameData } from "./Board";
+import Tile from "./Tile";
+import { PoseGroup } from "react-pose";
+import styles from "./index.module.scss";
 
 export const Tiles = ({ newGame, setStart, setModal }) => {
   const [state, setState] = useState([]);
@@ -38,7 +39,7 @@ export const Tiles = ({ newGame, setStart, setModal }) => {
       }, 700);
     }
     if (state.length !== 0 && counter.length === state.length / 2) {
-      setStart('FINAL');
+      setStart("FINAL");
       setModal(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -47,15 +48,17 @@ export const Tiles = ({ newGame, setStart, setModal }) => {
   return (
     <div className={styles.boardContainer}>
       <div className={styles.board}>
-        {state.map((el, index) => (
-          <Tile
-            index={index}
-            item={el}
-            key={el.id}
-            indexis={indexis}
-            setIndexis={setIndexis}
-          />
-        ))}
+        <PoseGroup>
+          {state.map((el, index) => (
+            <Tile
+              index={index}
+              item={el}
+              key={el.id}
+              indexis={indexis}
+              setIndexis={setIndexis}
+            />
+          ))}
+        </PoseGroup>
       </div>
     </div>
   );
