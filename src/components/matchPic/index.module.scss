@@ -23,7 +23,9 @@
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   min-height: 100%;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	height: 100%;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .banner {

@@ -59,7 +59,7 @@ export const Game = () => {
           <Timer newGame={newGame} start={start} setFinalTime={setFinalTime} />
         </Col>
         <Col
-          className="justify-content-center align-items-center d-flex"
+          className="justify-content-center align-items-center d-flex mb-4"
           xs={12}
           md={{ size: 6, order: 2 }}
         >
