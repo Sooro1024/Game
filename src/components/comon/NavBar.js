@@ -17,7 +17,11 @@ export const Navigation = () => {
   return (
     <Navbar color="dark" dark expand="md" className="mb-xs-2 mb-md-4">
       <NavbarBrand className="text-white" color="light" tag="div">
-        <Link className="text-white navbar-brand" to="/">
+        <Link
+          onClick={isOpen ? toggle : undefined}
+          className="text-white navbar-brand"
+          to="/"
+        >
           Games Made With REACT
         </Link>
       </NavbarBrand>
@@ -26,21 +30,33 @@ export const Navigation = () => {
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink tag="span">
-              <Link className="nav-link" to="/puzzle-15">
+              <Link
+                onClick={isOpen ? toggle : undefined}
+                className="nav-link"
+                to="/puzzle-15"
+              >
                 15 Puzzle
               </Link>
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink tag="span">
-              <Link className="nav-link" to="/match-the-picture">
+              <Link
+                onClick={isOpen ? toggle : undefined}
+                className="nav-link"
+                to="/match-the-picture"
+              >
                 Match the picture
               </Link>
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink tag="span">
-              <Link className="nav-link" to="/snake">
+              <Link
+                onClick={isOpen ? toggle : undefined}
+                className="nav-link"
+                to="/snake"
+              >
                 Snake
               </Link>
             </NavLink>
