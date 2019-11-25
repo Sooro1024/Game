@@ -1,27 +1,63 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "64b44c0bbf658be3a554f8bdd17e3161",
+    "revision": "39206023f1ee85d12727d9b71612f96f",
     "url": "/games/index.html"
   },
   {
-    "revision": "bc42d90e1ea78bd44dbd",
-    "url": "/games/static/css/2.0624914a.chunk.css"
+    "revision": "ebc097098351acb1e3c8",
+    "url": "/games/static/css/4.b0bb7f2c.chunk.css"
   },
   {
-    "revision": "184fc1f2e56f9f493ec8",
-    "url": "/games/static/css/main.ec372737.chunk.css"
+    "revision": "a98c957a7de5dac31844",
+    "url": "/games/static/css/5.8b407141.chunk.css"
   },
   {
-    "revision": "bc42d90e1ea78bd44dbd",
-    "url": "/games/static/js/2.68da05a1.chunk.js"
+    "revision": "a3150cca25737fb99ea0",
+    "url": "/games/static/css/7.8d6a9300.chunk.css"
   },
   {
-    "revision": "184fc1f2e56f9f493ec8",
-    "url": "/games/static/js/main.cbb75998.chunk.js"
+    "revision": "9d3b0b9d15c5ce8aa456",
+    "url": "/games/static/css/8.f1b336f0.chunk.css"
   },
   {
-    "revision": "e817cc5816276c6b4a8c",
-    "url": "/games/static/js/runtime-main.36fb161c.js"
+    "revision": "7b812e9fcd8cd6812ab7",
+    "url": "/games/static/css/main.67cb057f.chunk.css"
+  },
+  {
+    "revision": "7c5804ea50dba3a1d19c",
+    "url": "/games/static/js/0.69faa806.chunk.js"
+  },
+  {
+    "revision": "6c02c95842fd07caa847",
+    "url": "/games/static/js/1.60018141.chunk.js"
+  },
+  {
+    "revision": "ebc097098351acb1e3c8",
+    "url": "/games/static/js/4.1bf5a11c.chunk.js"
+  },
+  {
+    "revision": "a98c957a7de5dac31844",
+    "url": "/games/static/js/5.cd5d1061.chunk.js"
+  },
+  {
+    "revision": "bb7d5d90c25af28bbc34",
+    "url": "/games/static/js/6.ed749a92.chunk.js"
+  },
+  {
+    "revision": "a3150cca25737fb99ea0",
+    "url": "/games/static/js/7.d2e54034.chunk.js"
+  },
+  {
+    "revision": "9d3b0b9d15c5ce8aa456",
+    "url": "/games/static/js/8.9e2a7e04.chunk.js"
+  },
+  {
+    "revision": "7b812e9fcd8cd6812ab7",
+    "url": "/games/static/js/main.b3cf3e25.chunk.js"
+  },
+  {
+    "revision": "86576b198ba5163f66a9",
+    "url": "/games/static/js/runtime-main.b7d453fb.js"
   },
   {
     "revision": "7563ab4aa282ba2117d3ae55f2366857",
