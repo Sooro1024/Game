@@ -1,9 +1,9 @@
-import { differenceWith, random } from 'lodash';
-import nanoid from 'nanoid';
-import { find } from 'lodash';
-import Eat from './music/Eat.mp3';
-import GameOver from './music/GameOver.mp3';
-import { BOARD } from './Board';
+import { differenceWith, random } from "lodash";
+import { nanoid } from "nanoid";
+import { find } from "lodash";
+import Eat from "./music/Eat.mp3";
+import GameOver from "./music/GameOver.mp3";
+import { BOARD } from "./Board";
 
 const EatSound = new Audio(Eat);
 const GameOverSound = new Audio(GameOver);
@@ -16,7 +16,7 @@ function compare(obj1, obj2) {
   }
 }
 
-const newFoodRandom = snake => {
+const newFoodRandom = (snake) => {
   const blankPart = differenceWith(BOARD, snake, compare);
   const length = blankPart.length - 1;
   const randomNumber = random(length);
@@ -28,7 +28,7 @@ const createInitalState = () => {
     { x: 8, y: 3, id: nanoid() },
     { x: 9, y: 3, id: nanoid() },
     { x: 9, y: 4, id: nanoid() },
-    { x: 9, y: 5, id: nanoid() }
+    { x: 9, y: 5, id: nanoid() },
   ];
 
   const food = newFoodRandom(snake);
@@ -36,7 +36,7 @@ const createInitalState = () => {
   return {
     snake,
     food,
-    direction: 'UP'
+    direction: "UP",
   };
 };
 
@@ -47,16 +47,16 @@ const Move = ({ snake, food, direction }, payload) => {
   const length = newSnake.length - 1;
   const head = { ...newSnake[length], id: nanoid() };
   switch (direction) {
-    case 'UP':
+    case "UP":
       head.y = head.y + 1;
       break;
-    case 'DOWN':
+    case "DOWN":
       head.y = head.y - 1;
       break;
-    case 'LEFT':
+    case "LEFT":
       head.x = head.x - 1;
       break;
-    case 'RIGHT':
+    case "RIGHT":
       head.x = head.x + 1;
       break;
     default:
@@ -87,10 +87,10 @@ const eatOrNot = (snake, food, dispatch, gameOverCondition, scoreIncrease) => {
   if (head.x === food.x && head.y === food.y) {
     scoreIncrease();
     EatSound.play();
-    dispatch({ type: 'FOOD' });
+    dispatch({ type: "FOOD" });
   } else if (!gameOverCondition) {
     setTimeout(() => {
-      dispatch({ type: 'RESSET' });
+      dispatch({ type: "RESSET" });
     }, 500);
     return;
   } else {
@@ -108,7 +108,7 @@ const checkBorderAndSnake = (newHead, snake, gameOverTogle) => {
     GameOverSound.play();
     gameOverTogle(false);
   } else if (
-    find(snake, function(el) {
+    find(snake, function (el) {
       return el.x === newHead.x && el.y === newHead.y;
     })
   ) {
@@ -121,13 +121,13 @@ const checkBorderAndSnake = (newHead, snake, gameOverTogle) => {
 
 export const gameReducer = (state, { type, payload }) => {
   switch (type) {
-    case 'MOVE':
+    case "MOVE":
       return { ...state, snake: Move(state, payload) };
-    case 'FOOD':
+    case "FOOD":
       return { ...state, food: newFoodRandom(state.snake) };
-    case 'CHANGE_DIRECTION':
+    case "CHANGE_DIRECTION":
       return { ...state, direction: BlockOposit(state.direction, payload) };
-    case 'RESSET':
+    case "RESSET":
       return NewGame();
     default:
       return state;
@@ -136,27 +136,27 @@ export const gameReducer = (state, { type, payload }) => {
 
 const BlockOposit = (prevDir, nextDir) => {
   switch (prevDir) {
-    case 'UP':
-      if (nextDir === 'DOWN') {
-        return 'UP';
+    case "UP":
+      if (nextDir === "DOWN") {
+        return "UP";
       } else {
         return nextDir;
       }
-    case 'DOWN':
-      if (nextDir === 'UP') {
-        return 'DOWN';
+    case "DOWN":
+      if (nextDir === "UP") {
+        return "DOWN";
       } else {
         return nextDir;
       }
-    case 'LEFT':
-      if (nextDir === 'RIGHT') {
-        return 'LEFT';
+    case "LEFT":
+      if (nextDir === "RIGHT") {
+        return "LEFT";
       } else {
         return nextDir;
       }
-    case 'RIGHT':
-      if (nextDir === 'LEFT') {
-        return 'RIGHT';
+    case "RIGHT":
+      if (nextDir === "LEFT") {
+        return "RIGHT";
       } else {
         return nextDir;
       }
